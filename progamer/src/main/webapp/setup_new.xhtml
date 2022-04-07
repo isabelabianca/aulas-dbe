@@ -10,24 +10,41 @@
 		<!-- Form Setup -->
 		<h:form>
 			<p:card style="width: 25em; margin: 1em auto">
-
+				
+				<p:messages id="messages" closable="true">
+					<p:autoUpdate />
+				</p:messages>
+				
 				<f:facet name="title">New Setup</f:facet>
 				<div class="ui-fluid">
+				
 				<div class="p-field">
 				<label for="name">Name</label>
-				<p:inputText id="name" type="text" value="#{setupBean.setup.name}" />
+				<p:inputText id="name" 
+							type="text" 
+							value="#{setupBean.setup.name}"
+							required="true"
+							requiredMessage="O campo nome é obrigatório" 
+				/>
+				
 				</div>
 				<div class="p-field">
+				
 				<label for="description">Description</label>
 				<p:inputTextarea id="description" type="text"
 					value="#{setupBean.setup.description}" />
 				</div>
+				
 				<div class="p-field">
 				<label for="price">Price</label>
 				<p:inputNumber id="price" symbol="R$ " decimalSeparator=","
-					thousandSeparator="." value="#{setupBean.setup.price}" />
+					thousandSeparator="." value="#{setupBean.setup.price}">
+					<f:validateDoubleRange minimum="1"/>
+				</p:inputNumber>
 				</div>
+				
 				</div>
+				
 				<f:facet name="footer">
 					<p:commandButton icon="pi pi-check" value="Save"
 						action="#{setupBean.save()}" />
