@@ -24,7 +24,8 @@
 					<div class="p-field p-col-12 p-md-4">
 						<label for="birthDate">Birth Date</label>
 						<p:datePicker id="navigator" value="#{userBean.user.birthDate}"
-							monthNavigator="true" yearNavigator="true" showWeek="true" />
+							monthNavigator="true" yearNavigator="true" showWeek="true" 
+							required="true" requiredMessage="O campo data de nascimento é obrigatório"/>
 					</div>
 
 					<div class="p-field">
@@ -34,7 +35,8 @@
 					</div>
 					<div class="p-field">
 						<label for="password">Password</label>
-						<p:password id="toggle" value="#{userBean.user.password}" toggleMask="true" redisplay="true"/>
+						<p:password id="toggle" value="#{userBean.user.password}" toggleMask="true" redisplay="true"
+							required="true" requiredMessage="O campo senha é obrigatório"/>
 					</div>
 				</div>
 
