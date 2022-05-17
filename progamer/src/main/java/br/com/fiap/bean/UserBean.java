@@ -48,7 +48,7 @@ public class UserBean {
 
 		userDao.create(user);
 
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Setup cadastrado com sucesso!"));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário cadastrado com sucesso!"));
 
 		return "profiles";
 	}
