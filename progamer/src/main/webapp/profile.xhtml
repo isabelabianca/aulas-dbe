@@ -7,15 +7,15 @@
 
 <ui:composition template="_template.xhtml">
 	<ui:define name="content">
-		<!-- Form Setup -->
+
 		<p:messages id="messages" closable="true">
 			<p:autoUpdate />
 		</p:messages>
+		
 		<h:form enctype="multipart/form-data">
 			<p:card style="width: 25em; margin: 1em auto">
 
-
-				<f:facet name="title">New Setup</f:facet>
+				<f:facet name="title">New User</f:facet>
 				<div class="ui-fluid">
 
 					<div class="p-field">
@@ -25,6 +25,27 @@
 							<f:ajax event="blur" render="messages" />
 						</p:inputText>
 
+					</div>
+					
+					<div class="p-field p-col-12 p-md-4">
+						<label for="birthDate">Birth Date</label>
+						<p:datePicker id="navigator" value="#{userBean.user.birthDate}"
+							monthNavigator="true" yearNavigator="true" showWeek="true"
+							required="true"
+							requiredMessage="O campo data de nascimento é obrigatório" />
+					</div>
+					
+					<div class="p-field">
+						<label for="email">E-mail</label>
+						<p:inputText id="email" type="text" value="#{userBean.user.email}"
+							required="true" requiredMessage="O campo email é obrigatório" />
+					</div>
+					
+					<div class="p-field">
+						<label for="password">Password</label>
+						<p:password id="toggle" value="#{userBean.user.password}"
+							toggleMask="true" redisplay="true" required="true"
+							requiredMessage="O campo senha é obrigatório" />
 					</div>
 					
 					<div class="p-field">
