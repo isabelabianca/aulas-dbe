@@ -32,20 +32,27 @@
 						<p:datePicker id="navigator" value="#{userBean.user.birthDate}"
 							monthNavigator="true" yearNavigator="true" showWeek="true"
 							required="true"
-							requiredMessage="O campo data de nascimento é obrigatório" />
+							requiredMessage="O campo data de nascimento é obrigatório">
+							
+							<f:ajax event="blur" render="messages" />
+						</p:datePicker>
 					</div>
 					
 					<div class="p-field">
 						<label for="email">E-mail</label>
 						<p:inputText id="email" type="text" value="#{userBean.user.email}"
-							required="true" requiredMessage="O campo email é obrigatório" />
+							required="true" requiredMessage="O campo email é obrigatório">
+							<f:ajax event="blur" render="messages" />
+						</p:inputText>
 					</div>
 					
 					<div class="p-field">
 						<label for="password">Password</label>
 						<p:password id="toggle" value="#{userBean.user.password}"
 							toggleMask="true" redisplay="true" required="true"
-							requiredMessage="O campo senha é obrigatório" />
+							requiredMessage="O campo senha é obrigatório">
+							<f:ajax event="blur" render="messages" />
+						</p:password>
 					</div>
 					
 					<div class="p-field">
