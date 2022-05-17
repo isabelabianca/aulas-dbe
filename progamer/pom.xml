@@ -15,9 +15,9 @@
 	<!-- teste bug -->
 		<dependency>
 			<groupId>com.h2database</groupId>
-				<artifactId>h2</artifactId>
-				<version>1.4.195</version>
-			</dependency>
+			<artifactId>h2</artifactId>
+			<version>1.4.195</version>
+		</dependency>
 	<!--  -->
 	
 		<!-- JEE -->
