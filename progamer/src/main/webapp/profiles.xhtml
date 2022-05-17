@@ -9,13 +9,16 @@
 <ui:composition template="_template.xhtml">
 	<ui:define name="content">
 		<!-- TABELA -->
+		<p:messages id="messages" closable="true">
+			<p:autoUpdate />
+		</p:messages>
 		<h:form>
 			<div class="card">
 				<p:dataTable var="user" value="#{userBean.list}">
 				
 					<p:column headerText="Image">
 						<p:avatar styleClass="p-mr-2" size="xlarge" shape="circle">
-							<p:graphicImage name="#{user.imagePath}" />
+							<p:graphicImage name="#{request.contextPath}#{user.imagePath}" />
 						</p:avatar>
 					</p:column>
 					
