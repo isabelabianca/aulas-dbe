@@ -16,8 +16,8 @@
 			<div class="card">
 				<p:dataTable var="user" value="#{userBean.list}">
 					<p:column headerText="Image">
-						<img src="#{request.contextPath}#{user.imagePath}" 
-							style="width: 150px"/>
+						<img src="#{request.contextPath}#{user.imagePath}"
+							style="width: 150px; height: 150px; border-radius: 50%" />
 					</p:column>
 
 					<p:column headerText="Name">
