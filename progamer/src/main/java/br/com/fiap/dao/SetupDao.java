@@ -2,7 +2,6 @@ package br.com.fiap.dao;
 
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -15,7 +14,6 @@ public class SetupDao {
 	EntityManagerFactory factory = 
 			Persistence.createEntityManagerFactory("progamer-persistence-unit");
 	EntityManager manager = factory.createEntityManager();
-	//private EntityManager manager;
 	
 	public void create(Setup setup) {
 		manager.getTransaction().begin();

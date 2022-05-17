@@ -31,26 +31,26 @@ public class UserBean {
 
 	public String save() throws IOException {
 		System.out.println(this.user);
-
+		
 		System.out.println(image.getFileName());
-
+		
 		ServletContext servletContext = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
 		String servletPath = servletContext.getRealPath("/");
-
+		
 		System.err.println(servletPath);
-
+		
 		FileOutputStream out = new FileOutputStream(servletPath + "\\images\\" + image.getFileName());
 		out.write(image.getContent());
 		out.close();
-
+		
 		user.setImagePath("\\images\\" + image.getFileName());
-
+		
 		userDao.create(user);
-
+		
 		FacesContext
 			.getCurrentInstance()
 			.addMessage(null, new FacesMessage("Usuário cadastrado com sucesso!"));
-
+		
 		return "profiles";
 	}
 
