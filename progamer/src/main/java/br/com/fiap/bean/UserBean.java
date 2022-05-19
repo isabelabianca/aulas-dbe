@@ -61,6 +61,25 @@ public class UserBean {
 	public List<User> getList() {
 		return list;
 	}
+	
+	public String login() {
+		if(userDao.exist(user)) {
+			return "setups";
+		}
+		
+		FacesContext
+			.getCurrentInstance()
+			.getExternalContext()
+			.getFlash()
+			.setKeepMessages(true);
+		
+		FacesContext
+			.getCurrentInstance()
+			.addMessage(null, new FacesMessage("Login Inválido"));
+		
+		return "login?faces-redirect=true";
+	}
+	
 
 	public void setList(List<User> list) {
 		this.list = list;
