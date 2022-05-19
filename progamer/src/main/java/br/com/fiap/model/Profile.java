@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class Profile {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -52,7 +52,7 @@ public class User {
 	
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", birthDate=" + birthDate + ", email=" + email + ", password=" + password + "]";
+		return "Profile [name=" + name + ", birthDate=" + birthDate + ", email=" + email + ", password=" + password + "]";
 	}
 
 	public String getImagePath() {

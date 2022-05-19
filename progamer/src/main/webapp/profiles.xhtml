@@ -14,22 +14,22 @@
 		</p:messages>
 		<h:form>
 			<div class="card">
-				<p:dataTable var="user" value="#{userBean.list}">
+				<p:dataTable var="profile" value="#{profileBean.list}">
 					<p:column>
-						<img src="#{request.contextPath}#{user.imagePath}"
+						<img src="#{request.contextPath}#{profile.imagePath}"
 							style="width: 150px; height: 150px; border-radius: 50%" />
 					</p:column>
 
 					<p:column headerText="Name">
-						<h:outputText value="#{user.name}" />
+						<h:outputText value="#{profile.name}" />
 					</p:column>
 
 					<p:column headerText="E-mail">
-						<h:outputText value="#{user.email}" />
+						<h:outputText value="#{profile.email}" />
 					</p:column>
 
 					<p:column headerText="Birth Date">
-						<h:outputText value="#{user.birthDate}" />
+						<h:outputText value="#{profile.birthDate}" />
 					</p:column>
 				</p:dataTable>
 			</div>

@@ -7,26 +7,26 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import br.com.fiap.model.User;
+import br.com.fiap.model.Profile;
 
-public class UserDao {
+public class ProfileDao {
 
 	EntityManagerFactory factory = 
 			Persistence.createEntityManagerFactory("progamer-persistence-unit");
 	EntityManager manager = factory.createEntityManager();
 	
-	public void create(User user) {
+	public void create(Profile profile) {
 		manager.getTransaction().begin();
-		manager.persist(user);
+		manager.persist(profile);
 		manager.getTransaction().commit();
 		
 		manager.clear();
 		
 	}
 	
-	public List<User> listAll() {
-		TypedQuery<User> query = 
-				manager.createQuery("SELECT u FROM User u", User.class);
+	public List<Profile> listAll() {
+		TypedQuery<Profile> query = 
+				manager.createQuery("SELECT p FROM Profile p", Profile.class);
 		return query.getResultList();
 	}
 

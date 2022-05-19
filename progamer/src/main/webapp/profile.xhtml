@@ -20,7 +20,7 @@
 
 					<div class="p-field">
 						<label for="name">Name</label>
-						<p:inputText id="name" type="text" value="#{userBean.user.name}"
+						<p:inputText id="name" type="text" value="#{profileBean.profile.name}"
 							required="true" requiredMessage="O campo nome é obrigatório">
 							<f:ajax event="blur" render="messages" />
 						</p:inputText>
@@ -29,7 +29,7 @@
 					
 					<div class="p-field p-col-12 p-md-4">
 						<label for="birthDate">Birth Date</label>
-						<p:datePicker id="navigator" value="#{userBean.user.birthDate}"
+						<p:datePicker id="navigator" value="#{profileBean.profile.birthDate}"
 							monthNavigator="true" yearNavigator="true" showWeek="true"
 							required="true"
 							requiredMessage="O campo data de nascimento é obrigatório">
@@ -40,7 +40,7 @@
 					
 					<div class="p-field">
 						<label for="email">E-mail</label>
-						<p:inputText id="email" type="text" value="#{userBean.user.email}"
+						<p:inputText id="email" type="text" value="#{profileBean.profile.email}"
 							required="true" requiredMessage="O campo email é obrigatório">
 							<f:ajax event="blur" render="messages" />
 						</p:inputText>
@@ -48,7 +48,7 @@
 					
 					<div class="p-field">
 						<label for="password">Password</label>
-						<p:password id="toggle" value="#{userBean.user.password}"
+						<p:password id="toggle" value="#{profileBean.profile.password}"
 							toggleMask="true" redisplay="true" required="true"
 							requiredMessage="O campo senha é obrigatório">
 							<f:ajax event="blur" render="messages" />
@@ -60,15 +60,15 @@
 						<p:fileUpload id="image" 
 							mode="simple" 
 							skinSimple="true"
-							value="#{userBean.image}"/>
+							value="#{profileBean.image}"/>
 					</div>
 
 				</div>
 
 				<f:facet name="footer">
 					<p:commandButton icon="pi pi-check" value="Save"
-						action="#{userBean.save()}" />
-					<p:commandButton action="#{userBean.list()}" icon="pi pi-times"
+						action="#{profileBean.save()}" />
+					<p:commandButton action="#{profileBean.list()}" icon="pi pi-times"
 						value="Cancel" styleClass="ui-button-secondary"
 						style="margin-left: .5em" />
 				</f:facet>
