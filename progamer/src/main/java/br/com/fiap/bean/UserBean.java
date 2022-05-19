@@ -12,25 +12,25 @@ import javax.servlet.ServletContext;
 
 import org.primefaces.model.file.UploadedFile;
 
-import br.com.fiap.dao.ProfileDao;
-import br.com.fiap.model.Profile;
+import br.com.fiap.dao.UserDao;
+import br.com.fiap.model.User;
 
 @Named
 @RequestScoped
-public class ProfileBean {
+public class UserBean {
 
-	private Profile profile = new Profile();
-	private List<Profile> list;
+	private User user = new User();
+	private List<User> list;
 	private UploadedFile image;
 
-	private ProfileDao profileDao = new ProfileDao();
+	private UserDao userDao = new UserDao();
 
-	public ProfileBean() {
+	public UserBean() {
 		list = this.list();
 	}
 
 	public String save() throws IOException {
-		System.out.println(this.profile);
+		System.out.println(this.user);
 		
 		System.out.println(image.getFileName());
 		
@@ -43,9 +43,9 @@ public class ProfileBean {
 		out.write(image.getContent());
 		out.close();
 		
-		profile.setImagePath("\\images\\" + image.getFileName());
+		user.setImagePath("\\images\\" + image.getFileName());
 		
-		profileDao.create(profile);
+		userDao.create(user);
 		
 		FacesContext
 			.getCurrentInstance()
@@ -54,24 +54,24 @@ public class ProfileBean {
 		return "profiles";
 	}
 
-	public List<Profile> list() {
-		return profileDao.listAll();
+	public List<User> list() {
+		return userDao.listAll();
 	}
 
-	public List<Profile> getList() {
+	public List<User> getList() {
 		return list;
 	}
 
-	public void setList(List<Profile> list) {
+	public void setList(List<User> list) {
 		this.list = list;
 	}
 
-	public Profile getProfile() {
-		return profile;
+	public User getUser() {
+		return user;
 	}
 
-	public void setProfile(Profile profile) {
-		this.profile = profile;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public UploadedFile getImage() {
