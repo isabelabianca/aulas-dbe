@@ -87,6 +87,16 @@ public class UserBean {
 		return "login?faces-redirect=true";
 	}
 	
+	public String logout() {
+		FacesContext
+		.getCurrentInstance()
+		.getExternalContext()
+		.getSessionMap()
+		.remove("user");
+		
+		return "login";
+	}
+	
 
 	public void setList(List<User> list) {
 		this.list = list;

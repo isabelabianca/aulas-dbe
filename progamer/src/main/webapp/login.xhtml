@@ -21,19 +21,13 @@
 
 				<div class="p-field">
 					<label for="email">E-mail</label>
-					<p:inputText id="email" type="text" value="#{userBean.user.email}"
-						required="true" requiredMessage="O campo email é obrigatório">
-						<f:ajax event="blur" render="messages" />
-					</p:inputText>
+					<p:inputText id="email" type="text" value="#{userBean.user.email}"/>
 				</div>
 
 				<div class="p-field">
 					<label for="password">Password</label>
 					<p:password id="password" value="#{userBean.user.password}"
-						toggleMask="true" redisplay="true" required="true"
-						requiredMessage="O campo senha é obrigatório">
-						<f:ajax event="blur" render="messages" />
-					</p:password>
+						toggleMask="true" redisplay="true"/>
 				</div>
 
 			</div>
