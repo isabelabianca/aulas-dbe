@@ -64,6 +64,13 @@ public class UserBean {
 	
 	public String login() {
 		if(userDao.exist(user)) {
+			//Salvar o usuário logado na sessão
+			FacesContext
+				.getCurrentInstance()
+				.getExternalContext()
+				.getSessionMap()
+				.put("user", user);
+			
 			return "setups";
 		}
 		
