@@ -12,61 +12,65 @@
 		<p:messages id="messages" closable="true">
 			<p:autoUpdate />
 		</p:messages>
-		<h:form>
-			<div class="card">
-			
-			        
-			        
-		
-        <!-- MEU -->
-			
-				<p:dataView var="setup" value="#{setupBean.list}" editable="true">
-<!-- 
+
+		<div class="card product">
+			<h:form id="form">
+				<!-- MEU -->
+
+				<p:dataView var="setup" value="#{setupBean.list}">
+					<!-- 
 					<p:ajax event="rowEdit" listener="#{setupBean.edit()}"
 						update="messages" />
+ 					-->
+					<p:dataViewGridItem>
 
- -->
-					<p:column headerText="Image">
-						<img src="#{request.contextPath}#{setup.imagePath}"
-							style="width: 150px" />
-					</p:column>
-					<p:column headerText="ID">
-						<h:outputText value="#{setup.id}" />
-					</p:column>
+						<div class="product-grid-item card border-1">
+							<div class="product-grid-item-content">
+								<p:graphicImage name="#{request.contextPath}#{setup.imagePath}"/>
+								<div class="product-name">#{setup.name}</div>
+								<div class="product-description">#{setup.description}</div>
+								<p:rating readonly="true" value="#" />
+							</div>
+							<div class="product-grid-item-bottom">
+							
+							<p:column headerText="Price">
+								<h:outputText value="#{setup.price}" />
+							</p:column>
 
-					<p:column headerText="Name">
-						<p:cellEditor>
-							<f:facet name="output">
-								<h:outputText value="#{setup.name}" />
-							</f:facet>
+							<p:column style="width:6rem">
+								<p:rowEditor editTitle="Edit Setup" cancelTitle="Cancel Edit"
+									saveTitle="Save Edit" />
+							</p:column>
+							</div>
+						</div>
+					</p:dataViewGridItem>
+					
+					<p:dataViewListItem>
 
-							<f:facet name="input">
-								<h:inputText value="#{setup.name}" />
-							</f:facet>
-						</p:cellEditor>
-					</p:column>
+						<div class="product-grid-item card border-1">
+							<div class="product-grid-item-content">
+								<p:graphicImage name="#{request.contextPath}#{setup.imagePath}"/>
+								<div class="product-name">#{setup.name}</div>
+								<div class="product-description">#{setup.description}</div>
+								<p:rating readonly="true" value="#" />
+							</div>
+							<div class="product-grid-item-bottom">
+							
+							<p:column headerText="Price">
+								<h:outputText value="#{setup.price}" />
+							</p:column>
 
-					<p:column headerText="Description">
-						<h:outputText value="#{setup.description}" />
-					</p:column>
-
-					<p:column headerText="Price">
-						<h:outputText value="#{setup.price}" />
-					</p:column>
-
-					<p:column style="width:6rem">
-						<p:commandButton title="delete setup"
-							action="#{setupBean.delete(setup)}" icon="pi pi-trash"
-							styleClass="rounded-button ui-button-danger ui-button-flat" />
-					</p:column>
-					<p:column style="width:6rem">
-						<p:rowEditor editTitle="Edit Setup" cancelTitle="Cancel Edit"
-							saveTitle="Save Edit" />
-					</p:column>
-
+							<p:column style="width:6rem">
+								<p:rowEditor editTitle="Edit Setup" cancelTitle="Cancel Edit"
+									saveTitle="Save Edit" />
+							</p:column>
+							</div>
+						</div>
+					</p:dataViewListItem>
+					
 				</p:dataView>
-			</div>
-		</h:form>
+			</h:form>
+		</div>
 	</ui:define>
 </ui:composition>
 
