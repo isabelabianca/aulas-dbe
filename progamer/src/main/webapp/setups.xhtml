@@ -17,7 +17,10 @@
 			<h:form id="form">
 				<!-- MEU -->
 
-				<p:dataView var="setup" value="#{setupBean.list}">
+				<p:dataView var="setup" value="#{setupBean.list}" rows="12" paginator="true"
+                    rowsPerPageTemplate="6,12,16"
+                    paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    gridIcon="pi pi-th-large" listIcon="pi pi-bars">
 					<!-- 
 					<p:ajax event="rowEdit" listener="#{setupBean.edit()}"
 						update="messages" />
@@ -25,45 +28,45 @@
 					<p:dataViewGridItem>
 
 						<div class="product-grid-item card border-1">
+							
 							<div class="product-grid-item-content">
-								<p:graphicImage name="#{request.contextPath}#{setup.imagePath}"/>
+								<img src="#{request.contextPath}#{setup.imagePath}" style="width: 150px"/>
 								<div class="product-name">#{setup.name}</div>
 								<div class="product-description">#{setup.description}</div>
 								<p:rating readonly="true" value="#" />
+								
 							</div>
 							<div class="product-grid-item-bottom">
 							
-							<p:column headerText="Price">
-								<h:outputText value="#{setup.price}" />
-							</p:column>
-
-							<p:column style="width:6rem">
-								<p:rowEditor editTitle="Edit Setup" cancelTitle="Cancel Edit"
-									saveTitle="Save Edit" />
-							</p:column>
+								<h:outputText value="#{setup.price}" styleClass="product-price">
+									<f:convertNumber currencySymbol="$" type="currency"/>
+								</h:outputText>	
+								<p:column style="width:6rem">
+									<p:rowEditor editTitle="Edit Setup" cancelTitle="Cancel Edit"
+										saveTitle="Save Edit" />
+								</p:column>
 							</div>
 						</div>
 					</p:dataViewGridItem>
 					
 					<p:dataViewListItem>
-
-						<div class="product-grid-item card border-1">
-							<div class="product-grid-item-content">
-								<p:graphicImage name="#{request.contextPath}#{setup.imagePath}"/>
+						<div class="product-list-item">
+						<img src="#{request.contextPath}#{setup.imagePath}" style="width: 150px"/>
+						
+							<div class="product-list-detail">
 								<div class="product-name">#{setup.name}</div>
 								<div class="product-description">#{setup.description}</div>
 								<p:rating readonly="true" value="#" />
 							</div>
-							<div class="product-grid-item-bottom">
 							
-							<p:column headerText="Price">
-								<h:outputText value="#{setup.price}" />
-							</p:column>
-
-							<p:column style="width:6rem">
+							<div class="product-list-action">
+							<h:outputText value="#{setup.price}" styleClass="product-price">
+								<f:convertNumber currencySymbol="$" type="currency"/>
+							</h:outputText>
+							<!-- <p:column style="width:6rem">
 								<p:rowEditor editTitle="Edit Setup" cancelTitle="Cancel Edit"
 									saveTitle="Save Edit" />
-							</p:column>
+							</p:column>  -->
 							</div>
 						</div>
 					</p:dataViewListItem>
