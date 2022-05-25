@@ -13,12 +13,19 @@
 			<p:autoUpdate />
 		</p:messages>
 		<h:form>
-		<!-- Usar componente dataview -->
 			<div class="card">
-				<p:dataTable var="setup" value="#{setupBean.list}" editable="true">
+			
+			        
+			        
+		
+        <!-- MEU -->
+			
+				<p:dataView var="setup" value="#{setupBean.list}" editable="true">
+<!-- 
 					<p:ajax event="rowEdit" listener="#{setupBean.edit()}"
 						update="messages" />
 
+ -->
 					<p:column headerText="Image">
 						<img src="#{request.contextPath}#{setup.imagePath}"
 							style="width: 150px" />
@@ -57,7 +64,7 @@
 							saveTitle="Save Edit" />
 					</p:column>
 
-				</p:dataTable>
+				</p:dataView>
 			</div>
 		</h:form>
 	</ui:define>
